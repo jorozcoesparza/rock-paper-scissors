@@ -8,18 +8,28 @@
     <script>
 
         function getComputerChoice() {
-            var randNumber = Math.random();
-            var computerChoice = "";
+            const randNumber = Math.random();
+            var computerSelection = "";
 
             if (randNumber < .34 ) {
-                return computerChoice = "Rock";
+                return computerSelection = "Rock";
             } else if (randNumber < .67) {
-                return computerChoice = "Paper";
+                return computerSelection = "Paper";
             } else {
-                return computerChoice = "Scissors";
+                return computerSelection = "Scissors";
             }
 
         }
+
+        function getPlayerChoice() {
+          const playerGuess = prompt("What is your guess?");
+            const firstLetter = playerGuess.charAt(0);
+            const firstLetterCap = firstLetter.toUpperCase();
+            const remainingLetters = playerGuess.slice(1);
+            const remainingLettersLower = remainingLetters.toLocaleLowerCase();
+            return playerSelection = firstLetterCap + remainingLettersLower;
+        }
+
 
 
     </script>
