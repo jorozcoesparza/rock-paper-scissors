@@ -7,6 +7,10 @@
   <body>
     <script>
 
+        var computerSelection = "";
+        var playerSelection = "";
+        var result = "";
+
         function getComputerChoice() {
             const randNumber = Math.random();
             var computerSelection = "";
@@ -30,6 +34,24 @@
             return playerSelection = firstLetterCap + remainingLettersLower;
         }
 
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == computerSelection) {
+              return result = "Tie!";
+            } else if ((playerSelection == "Rock") && (computerSelection == "Scissors")) {
+              return result = "You Win! Rock beats Scissors!";
+            } else if ((playerSelection == "Rock") && (computerSelection == "Paper")) {
+              return result = "You Loose! Paper beats Rock!";
+            } else if ((playerSelection == "Paper") && (computerSelection == "Scissors")) {
+              return result = "You Loose! Scissors beats Paper!";
+            } else if ((playerSelection == "Paper") && (computerSelection == "Rock")) {
+              return result = "You Win! Paper beats Rock!";
+            } else if ((playerSelection == "Scissors") && (computerSelection == "Rock")) {
+              return result = "You Loose! Rock beats Scissors!";
+            } else if ((playerSelection == "Scissors") && (computerSelection == "Paper")) {
+              return result = "You Win! Scissors beats Paper!";
+            } 
+        }
 
 
     </script>
