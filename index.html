@@ -9,48 +9,50 @@
 
         var computerSelection = "";
         var playerSelection = "";
-        var result = "";
 
-        function getComputerChoice() {
+
+       function getComputerChoice() {
             const randNumber = Math.random();
-            var computerSelection = "";
 
             if (randNumber < .34 ) {
-                return computerSelection = "Rock";
+                 computerSelection = "Rock";
             } else if (randNumber < .67) {
-                return computerSelection = "Paper";
+                 computerSelection = "Paper";
             } else {
-                return computerSelection = "Scissors";
+                 computerSelection = "Scissors";
             }
 
+            return computerSelection;
         }
 
         function getPlayerChoice() {
-          const playerGuess = prompt("What is your guess?");
+          const playerGuess = prompt("What is your choice?");
             const firstLetter = playerGuess.charAt(0);
             const firstLetterCap = firstLetter.toUpperCase();
             const remainingLetters = playerGuess.slice(1);
             const remainingLettersLower = remainingLetters.toLocaleLowerCase();
-            return playerSelection = firstLetterCap + remainingLettersLower;
+            playerSelection = firstLetterCap + remainingLettersLower;
+            return playerSelection;
         }
 
 
         function playRound(playerSelection, computerSelection) {
-            if (playerSelection == computerSelection) {
+            if (playerSelection === computerSelection) {
               return result = "Tie!";
-            } else if ((playerSelection == "Rock") && (computerSelection == "Scissors")) {
+            } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
               return result = "You Win! Rock beats Scissors!";
-            } else if ((playerSelection == "Rock") && (computerSelection == "Paper")) {
+            } else if (playerSelection === "Rock" && computerSelection === "Paper") {
               return result = "You Loose! Paper beats Rock!";
-            } else if ((playerSelection == "Paper") && (computerSelection == "Scissors")) {
+            } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
               return result = "You Loose! Scissors beats Paper!";
-            } else if ((playerSelection == "Paper") && (computerSelection == "Rock")) {
+            } else if (playerSelection === "Paper" && computerSelection === "Rock") {
               return result = "You Win! Paper beats Rock!";
-            } else if ((playerSelection == "Scissors") && (computerSelection == "Rock")) {
+            } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
               return result = "You Loose! Rock beats Scissors!";
-            } else if ((playerSelection == "Scissors") && (computerSelection == "Paper")) {
+            } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
               return result = "You Win! Scissors beats Paper!";
             } 
+            alert(result);
         }
 
 
