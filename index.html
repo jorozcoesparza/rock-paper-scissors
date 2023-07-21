@@ -22,7 +22,7 @@ let result = "";
             } else {
                  computerSelection = "Scissors";
             }
-          alert(computerSelection);
+          return computerSelection;
         }
 
         function getPlayerChoice() {
@@ -32,7 +32,7 @@ let result = "";
             const remainingLetters = playerGuess.slice(1);
             const remainingLettersLower = remainingLetters.toLocaleLowerCase();
             playerSelection = firstLetterCap + remainingLettersLower;
-            alert(playerSelection);
+            return playerSelection;
         }
 
 
@@ -52,6 +52,7 @@ let result = "";
             } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
               return result = "You Win! Scissors beats Paper!";
             } 
+            return result;
             alert(result);
         }
 
