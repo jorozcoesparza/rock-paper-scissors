@@ -7,9 +7,10 @@
   <body>
     <script>
 
-        var computerSelection = "";
-        var playerSelection = "";
-
+let computerSelection = "";
+let playerSelection = "";
+let result = "";
+      
 
        function getComputerChoice() {
             const randNumber = Math.random();
@@ -21,8 +22,7 @@
             } else {
                  computerSelection = "Scissors";
             }
-
-            return computerSelection;
+          alert(computerSelection);
         }
 
         function getPlayerChoice() {
@@ -32,7 +32,7 @@
             const remainingLetters = playerGuess.slice(1);
             const remainingLettersLower = remainingLetters.toLocaleLowerCase();
             playerSelection = firstLetterCap + remainingLettersLower;
-            return playerSelection;
+            alert(playerSelection);
         }
 
 
@@ -55,7 +55,11 @@
             alert(result);
         }
 
+        let resultComputerSelection = getComputerChoice();
+        let resultPlayerSelection = getPlayerChoice();
+        let gameResult = playRound(resultComputerSelection, resultPlayerSelection);
 
+      
     </script>
 
   </body>
