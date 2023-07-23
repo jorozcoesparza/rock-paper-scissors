@@ -57,14 +57,12 @@ let result = "";
         }
 */
 
-
-
-
 function game() {
 
    let playerScore = 0;
    let computerScore = 0;
    scoreStatement = 0;
+   let loopCounter = 0;
 
 playerSelection = getPlayerChoice();
 computerSelection = getComputerChoice();
@@ -97,12 +95,20 @@ console.log(playRound(playerSelection, computerSelection));
             alert(result);
         }
 
+        while (loopCounter < 4) {
+               loopCounter = loopCounter + 1;
+               playerSelection = getPlayerChoice();
+               computerSelection = getComputerChoice();
+               console.log(playRound(playerSelection, computerSelection));
+        }
+
+
         if (playerScore > computerScore) {
-         scoreStatement = "You win!";
+         scoreStatement = "You win the game!";
         } else if (playerScore < computerScore) {
-         scoreStatement = "You loose!";
+         scoreStatement = "You loose the game!";
         } else {
-         scoreStatement = "Tie!";
+         scoreStatement = "You tied!";
         }
 
         console.log(scoreStatement)
