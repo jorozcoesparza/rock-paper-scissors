@@ -62,7 +62,6 @@ function game() {
    let playerScore = 0;
    let computerScore = 0;
    scoreStatement = 0;
-   let loopCounter = 0;
 
 playerSelection = getPlayerChoice();
 computerSelection = getComputerChoice();
@@ -95,8 +94,7 @@ console.log(playRound(playerSelection, computerSelection));
             alert(result);
         }
 
-        while (loopCounter < 4) {
-               loopCounter = loopCounter + 1;
+        for (let loopCounter = 0; loopCounter < 4; loopCounter++) {
                playerSelection = getPlayerChoice();
                computerSelection = getComputerChoice();
                console.log(playRound(playerSelection, computerSelection));
