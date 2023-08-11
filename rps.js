@@ -1,4 +1,10 @@
+let user = "";
+function choose(choice) {
+   user = choice;
+   console.log(user);
+}
 
+/*
 
 let computerSelection = "";
 let playerSelection = "";
@@ -84,3 +90,5 @@ console.log(playRound(playerSelection, computerSelection));
 
 
 }
+
+*/
