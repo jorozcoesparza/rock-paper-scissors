@@ -1,14 +1,58 @@
-let user = "";
-function choose(choice) {
-   user = choice;
-   console.log(user);
-}
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+  button.addEventListener('click', () => {
+    playRound(button.value, getComputerChoice());
+  });
+});
+
+
+let computerSelection = "";
+let playerSelection = "";
+let result = ""; 
+      
+
+       function getComputerChoice() {
+            const randNumber = Math.random();
+
+            if (randNumber < .34 ) {
+                 computerSelection = "Rock";
+            } else if (randNumber < .67) {
+                 computerSelection = "Paper";
+            } else {
+                 computerSelection = "Scissors";
+            }
+          return computerSelection;
+        }
+
+
+        function playRound(playerSelection, computerSelection) {
+         if (playerSelection === computerSelection) {
+            result = "Tie!";
+         } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+            result = "You Win! Rock beats Scissors!";
+         } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+            result = "You Loose! Paper beats Rock!";
+         } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+            result = "You Loose! Scissors beats Paper!";
+         } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+            result = "You Win! Paper beats Rock!";
+         } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+            result = "You Loose! Rock beats Scissors!";
+         } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+            result = "You Win! Scissors beats Paper!";
+         } 
+         alert(result);
+         return result;
+     }
+
 
 /*
 
 let computerSelection = "";
 let playerSelection = "";
-let result = "";
+let result = ""; 
       
 
        function getComputerChoice() {
