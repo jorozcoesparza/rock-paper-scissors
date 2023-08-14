@@ -47,6 +47,20 @@ let result = "";
          return result;
      }
 
+const div = document.createElement('div');
+div.textContent = "test";
+div.setAttribute("id", "scoreContainer");
+
+const parentDiv = document.createElement('div');
+parentDiv.setAttribute("id", "flexParent");
+
+parentDiv.appendChild(div);
+
+const heading = document.querySelector('.heading');
+heading.insertAdjacentElement('afterend', parentDiv);
+
+
+
 
 /*
 
