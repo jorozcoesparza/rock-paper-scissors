@@ -1,9 +1,25 @@
 const buttons = document.querySelectorAll('button');
 
+const div = document.createElement('div');
+div.setAttribute("id", "scoreContainer");
+
+const parentDiv = document.createElement('div');
+parentDiv.setAttribute("id", "flexParent");
+
+parentDiv.appendChild(div);
+
+const heading = document.querySelector('.heading');
+heading.insertAdjacentElement('afterend', parentDiv);
+
+
+
+
+
+
 buttons.forEach((button) => {
 
   button.addEventListener('click', () => {
-    playRound(button.value, getComputerChoice());
+   playRound(button.value, getComputerChoice());
   });
 });
 
@@ -11,7 +27,8 @@ buttons.forEach((button) => {
 let computerSelection = "";
 let playerSelection = "";
 let result = ""; 
-      
+
+
 
        function getComputerChoice() {
             const randNumber = Math.random();
@@ -27,37 +44,62 @@ let result = "";
         }
 
 
+
+
+         let playerScore = 0;
+         let computerScore = 0;
+         scoreStatement = 0;
+
         function playRound(playerSelection, computerSelection) {
+
+
          if (playerSelection === computerSelection) {
             result = "Tie!";
          } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
             result = "You Win! Rock beats Scissors!";
+            playerScore = playerScore + 1;
          } else if (playerSelection === "Rock" && computerSelection === "Paper") {
             result = "You Loose! Paper beats Rock!";
+            computerScore = computerScore + 1;
          } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
             result = "You Loose! Scissors beats Paper!";
+            computerScore = computerScore + 1;
          } else if (playerSelection === "Paper" && computerSelection === "Rock") {
             result = "You Win! Paper beats Rock!";
+            playerScore = playerScore + 1;
          } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             result = "You Loose! Rock beats Scissors!";
+            computerScore = computerScore + 1;
          } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
             result = "You Win! Scissors beats Paper!";
+            playerScore = playerScore + 1;
          } 
-         alert(result);
+
+         if (playerScore == 5 || computerScore == 5) {
+            if (playerScore > computerScore) {
+               scoreStatement = "You win the game!";
+              } else if (playerScore < computerScore) {
+               scoreStatement = "You loose the game!";
+              } else {
+               scoreStatement = "You tied the game!";
+              }
+      
+              console.log(scoreStatement)
+              playerScore = 0;
+              computerScore = 0;
+         };
+
+
+         console.log(result);
+         console.log(playerScore);
+         console.log(computerScore);
          return result;
+      
      }
 
-const div = document.createElement('div');
-div.textContent = "test";
-div.setAttribute("id", "scoreContainer");
 
-const parentDiv = document.createElement('div');
-parentDiv.setAttribute("id", "flexParent");
 
-parentDiv.appendChild(div);
 
-const heading = document.querySelector('.heading');
-heading.insertAdjacentElement('afterend', parentDiv);
 
 
 
