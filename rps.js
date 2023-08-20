@@ -1,20 +1,26 @@
 const buttons = document.querySelectorAll('button');
 
-const div = document.createElement('div');
-div.setAttribute("id", "scoreContainer");
-
 const parentDiv = document.createElement('div');
 parentDiv.setAttribute("id", "flexParent");
 
-parentDiv.appendChild(div);
+const roundResult = document.createElement('div');
+roundResult.setAttribute("id", "scoreContainer");
+parentDiv.appendChild(roundResult);
 
-const heading = document.querySelector('.heading');
-heading.insertAdjacentElement('afterend', parentDiv);
+const playerContainer = document.createElement('div');
+playerContainer.setAttribute("id", "scoreContainer");
+parentDiv.appendChild(playerContainer);
 
+const computerContainer = document.createElement('div');
+computerContainer.setAttribute("id", "scoreContainer");
+parentDiv.appendChild(computerContainer);
 
+const winnerContainer = document.createElement('div');
+winnerContainer.setAttribute("id", "scoreContainer");
+parentDiv.appendChild(winnerContainer);
 
-
-
+const buttonContainer = document.querySelector('.buttoncontainer');
+buttonContainer.insertAdjacentElement('afterend', parentDiv);
 
 buttons.forEach((button) => {
 
@@ -51,27 +57,27 @@ let result = "";
          scoreStatement = 0;
 
         function playRound(playerSelection, computerSelection) {
-
+            winnerContainer.textContent = "";
 
          if (playerSelection === computerSelection) {
-            result = "Tie!";
+            result = "You tied this round! You chose the same as the computer!";
          } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-            result = "You Win! Rock beats Scissors!";
+            result = "You Win the round! Rock beats Scissors!";
             playerScore = playerScore + 1;
          } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-            result = "You Loose! Paper beats Rock!";
+            result = "You Loose the round! Paper beats Rock!";
             computerScore = computerScore + 1;
          } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-            result = "You Loose! Scissors beats Paper!";
+            result = "You Loose the round! Scissors beats Paper!";
             computerScore = computerScore + 1;
          } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-            result = "You Win! Paper beats Rock!";
+            result = "You Win the round! Paper beats Rock!";
             playerScore = playerScore + 1;
          } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-            result = "You Loose! Rock beats Scissors!";
+            result = "You Loose the round! Rock beats Scissors!";
             computerScore = computerScore + 1;
          } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-            result = "You Win! Scissors beats Paper!";
+            result = "You Win the round! Scissors beats Paper!";
             playerScore = playerScore + 1;
          } 
 
@@ -83,11 +89,26 @@ let result = "";
               } else {
                scoreStatement = "You tied the game!";
               }
-      
-              console.log(scoreStatement)
+              
+              const scoreStatementText = document.createTextNode(scoreStatement);
+              winnerContainer.textContent = "";
+              winnerContainer.appendChild(scoreStatementText);
+
+              console.log(scoreStatement);
               playerScore = 0;
               computerScore = 0;
          };
+
+
+         const roundResultText = document.createTextNode(result);
+         roundResult.textContent = "";
+         roundResult.appendChild(roundResultText);
+
+         const playerRoundScoreText = `Player Score: ${playerScore}`;
+         playerContainer.textContent = playerRoundScoreText;
+
+         const computerRoundScoreText = `Computer Score: ${computerScore}`;
+         computerContainer.textContent = computerRoundScoreText;
 
 
          console.log(result);
